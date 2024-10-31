@@ -1,7 +1,21 @@
-<section class="contato">
-    <div class="contato__descricao">
-        <h2 class="contato__titulo">Fique por dentro das novidades!</h2>
-        <p class="contato__texto">Atualizações de e-books, novos livros, promoções e outros.</p>
-    </div>
-    <input type="email" class="contato__email" placeholder="Cadastre seu e-mail">
-</section>
+---
+import footerIcons from '../images/Footer/icons.js';
+import Image from "astro/components/Image.astro"
+---
+<footer class="rodape">
+    <h2 class="rodape__titulo">Grupo Alura</h2>
+    {footerIcons.map(col => (
+        <ul class="lista-rodape">
+            <li class="lista-rodape__titulo">{col.col_title}</li>
+            {col.items.map(partner => (
+                <li class="lista-rodape__item">
+                    <Image src={partner.logo} alt=`Ícone {$partner.name}` />
+                    <a href="#" class="lista-rodape__link">{partner.name}</a>
+                </li>
+            ))}
+            
+    </ul>
+    ))}
+    
+
+</footer>
