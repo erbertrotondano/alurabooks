@@ -23,7 +23,7 @@ console.log(footerIcons);
 		<header class="cabecalho">
 			<div class="container">
 				<input type="checkbox" id="menu" class="container__botao">
-				<label for="menu">
+				<label for="menu" class="container__rotulo">
 					<span class="cabecalho__menu-hamburguer container__imagem"></span>
 				</label>
 				<ul class="lista-menu">
@@ -50,7 +50,7 @@ console.log(footerIcons);
 			
 			<ul class="opcoes">
 				<input type="checkbox" id="opcoes-menu" class="opcoes__botao">
-				<label for="opcoes-menu">
+				<label for="opcoes-menu" class="opcoes__rotulo">
 					<li class="opcoes__item">Categorias</li>
 				</label>
 				<ul class="lista-menu">
@@ -76,9 +76,17 @@ console.log(footerIcons);
 			</ul>
 
 			<div class="container">
-				<a href="#"><Image src={icons.favoritos} alt="Meus Favoritos" class="container__imagem container__imagem-transparent"/></a>
-				<a href="#"><Image src={icons.sacola} alt="Carrinho de Compras" class="container__imagem"/></a>
-				<a href="#"><Image src={icons.usuario} alt="Meu Perfil" class="container__imagem"/></a>
+				<a href="#">
+					<Image src={icons.favoritos} alt="Meus Favoritos" class="container__imagem container__imagem-transparent"/>
+				</a>
+				<a href="#" class="container__link">
+					<Image src={icons.sacola} alt="Carrinho de Compras" class="container__imagem"/>
+					<p class="container__texto">Minha Sacola</p>
+				</a>
+				<a href="#" class="container__link">
+					<Image src={icons.usuario} alt="Meu Perfil" class="container__imagem"/>
+					<p class="container__texto">Meu perfil</p>
+				</a>
 			</div>
 			
 			
@@ -93,50 +101,52 @@ console.log(footerIcons);
 		<section class="carousel">
 			<h2 class="carousel__titulo">Últimos Lançamentos</h2>
 			<!-- Slider main container -->
-			<div class="swiper">
-				<!-- If we need pagination -->
-				<div class="swiper-pagination"></div>
-				 <!-- If we need navigation buttons -->
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
-				<!-- Additional required wrapper -->
-				<div class="swiper-wrapper">
-				<!-- Slides -->
-					{sliderItems.map(slider => (
-						<div class="swiper-slide"><Image src={slider} alt="Slider Item" /></div>
-					))}
-			
-				</div>
-  			</div>
-
-			<div class="card">
-				<!-- 1ª Linha -->
-				<div class="card__descricao">
-					<!-- 1ª Coluna -->
-					<div class="descricao">
-						<h3 class="descricao__titulo">
-							Talvez você também se interesse por...
-						</h3>
-						<h2 class="descricao__titulo_livro">
-							Angular 11 e Firebase
-						</h2>
-						<p class="descricao__texto">
-							Construindo uma aplicação integrada com a plataforma do Google.
-						</p>
+			 <div class="carousel__container">
+				<div class="swiper">
+					<!-- If we need pagination -->
+					<div class="swiper-pagination"></div>
+					<!-- If we need navigation buttons -->
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+					<!-- Additional required wrapper -->
+					<div class="swiper-wrapper">
+					<!-- Slides -->
+						{sliderItems.map(slider => (
+							<div class="swiper-slide"><Image src={slider} alt="Slider Item" /></div>
+						))}
+				
 					</div>
-					<!-- 2ª Coluna -->
-					<Image src={AngularImg} alt="Logo Angular" />
 				</div>
-				<!-- 2ª Linha -->
-				 <div class="card__botoes">
-					<!-- 1ª Col -->
-					<ul class="botoes">
-						<li class="botoes__item"><Image src={icons.favoritos} alt="Favoritar Livro" /></li>
-						<li class="botoes__item"><Image src={icons.sacola} alt="Adicionar no carrinho de compras" /></li>
-					</ul>
-					<!-- 2ª col -->
-					 <a href="#" class="botoes__ancora">Saiba mais</a>
-				 </div>
+
+				<div class="card">
+					<!-- 1ª Linha -->
+					<div class="card__descricao">
+						<!-- 1ª Coluna -->
+						<div class="descricao">
+							<h3 class="descricao__titulo">
+								Talvez você também se interesse por...
+							</h3>
+							<h2 class="descricao__titulo_livro">
+								Angular 11 e Firebase
+							</h2>
+							<p class="descricao__texto">
+								Construindo uma aplicação integrada com a plataforma do Google.
+							</p>
+						</div>
+						<!-- 2ª Coluna -->
+						<Image src={AngularImg} alt="Logo Angular" />
+					</div>
+					<!-- 2ª Linha -->
+					<div class="card__botoes">
+						<!-- 1ª Col -->
+						<ul class="botoes">
+							<li class="botoes__item"><Image src={icons.favoritos} alt="Favoritar Livro" /></li>
+							<li class="botoes__item"><Image src={icons.sacola} alt="Adicionar no carrinho de compras" /></li>
+						</ul>
+						<!-- 2ª col -->
+						<a href="#" class="botoes__ancora">Saiba mais</a>
+					</div>
+				</div>
 			</div>
 
 		</section>
@@ -144,52 +154,54 @@ console.log(footerIcons);
 		<section class="carousel">
 			<h2 class="carousel__titulo">Mais Vendidos</h2>
 			<!-- Slider main container -->
-			<div class="swiper">
-				<!-- If we need pagination -->
-				<div class="swiper-pagination"></div>
-				<!-- Additional required wrapper -->
-				<div class="swiper-wrapper">
-				<!-- Slides -->
-					{sliderItems.map(slider => (
-						<div class="swiper-slide"><Image src={slider} alt="Slider Item" /></div>
-					))}
-			
-				</div>
-  			</div>
-
-			<div class="card">
-				<!-- 1ª Linha -->
-				<div class="card__descricao">
-					<!-- 1ª Coluna -->
-					<div class="descricao">
-						<div class="stars">
-							{[0,1,2,3,4].map(item => (
-								<Image src={Star} alt="Estrela" class="card__estrela"/>
-							))}
-						</div>
-						<h3 class="descricao__titulo">
-							Autora do Mês
-						</h3>
-						<h2 class="descricao__titulo_livro">
-							Juliana Agarikov
-						</h2>
-						<p class="descricao__texto">
-							Analista de sistemas e escritora, Juliana é especialista em Front-End. 
-						</p>
+			<div class="carousel__container">
+				<div class="swiper">
+					<!-- If we need pagination -->
+					<div class="swiper-pagination"></div>
+					<!-- Additional required wrapper -->
+					<div class="swiper-wrapper">
+					<!-- Slides -->
+						{sliderItems.map(slider => (
+							<div class="swiper-slide"><Image src={slider} alt="Slider Item" /></div>
+						))}
+				
 					</div>
-					<!-- 2ª Coluna -->
-					<Image src={PerfilEscritora} alt="Foto de perfil da Escritora" />
 				</div>
-				<!-- 2ª Linha -->
-				 <div class="card__botoes">
-					<!-- 1ª Col -->
-					<ul class="botoes">
-						<li class="botoes__item"><Image src={icons.favoritos} alt="Favoritar Livro" /></li>
-						<li class="botoes__item"><Image src={icons.sacola} alt="Adicionar no carrinho de compras" /></li>
-					</ul>
-					<!-- 2ª col -->
-					 <a href="#" class="botoes__ancora">Saiba mais</a>
-				 </div>
+
+				<div class="card">
+					<!-- 1ª Linha -->
+					<div class="card__descricao">
+						<!-- 1ª Coluna -->
+						<div class="descricao">
+							<div class="stars">
+								{[0,1,2,3,4].map(item => (
+									<Image src={Star} alt="Estrela" class="card__estrela"/>
+								))}
+							</div>
+							<h3 class="descricao__titulo">
+								Autora do Mês
+							</h3>
+							<h2 class="descricao__titulo_livro">
+								Juliana Agarikov
+							</h2>
+							<p class="descricao__texto">
+								Analista de sistemas e escritora, Juliana é especialista em Front-End. 
+							</p>
+						</div>
+						<!-- 2ª Coluna -->
+						<Image src={PerfilEscritora} alt="Foto de perfil da Escritora" />
+					</div>
+					<!-- 2ª Linha -->
+					<div class="card__botoes">
+						<!-- 1ª Col -->
+						<ul class="botoes">
+							<li class="botoes__item"><Image src={icons.favoritos} alt="Favoritar Livro" /></li>
+							<li class="botoes__item"><Image src={icons.sacola} alt="Adicionar no carrinho de compras" /></li>
+						</ul>
+						<!-- 2ª col -->
+						<a href="#" class="botoes__ancora">Saiba mais</a>
+					</div>
+				</div>
 			</div>
 
 		</section>
