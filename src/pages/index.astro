@@ -6,6 +6,8 @@ import sliderItems from '../images/Slider/sliderData.js';
 import AngularImg from '../images/Perfil-escritora 2.svg';
 import PerfilEscritora from '../images/Perfil-escritora 1.svg';
 import Star from '../images/Star.svg';
+import footerIcons from '../images/Footer/icons.js';
+console.log(footerIcons);
 ---
 
 <html lang="en">
@@ -43,9 +45,38 @@ import Star from '../images/Star.svg';
 					</li>
 				</ul>
 				<Image src={icons.logo} alt="Logo da Alura Books" class="container__imagem"/>
+				<h1 class="container__titulo"><b class="container__titulo--negrito">Alura</b>Books</h1>
 			</div>
+			
+			<ul class="opcoes">
+				<input type="checkbox" id="opcoes-menu" class="opcoes__botao">
+				<label for="opcoes-menu">
+					<li class="opcoes__item">Categorias</li>
+				</label>
+				<ul class="lista-menu">
+					<li class="lista-menu__titulo">Categorias</li>
+					<li class="lista-menu__item">
+						<a href="#" class="lista-menu__link">Programação</a>
+					</li>
+					<li class="lista-menu__item">
+						<a href="#" class="lista-menu__link">Front-End</a>
+					</li>
+					<li class="lista-menu__item">
+						<a href="#" class="lista-menu__link">Infraestrutura</a>
+					</li>
+					<li class="lista-menu__item">
+						<a href="#" class="lista-menu__link">Bussiness</a>
+					</li>
+					<li class="lista-menu__item">
+						<a href="#" class="lista-menu__link">Design & UX</a>
+					</li>
+				</ul>
+				<li class="opcoes__item"><a href="#" class="opcoes__link">Favoritos</a></li>
+				<li class="opcoes__item"><a href="#" class="opcoes__link">Minha Estante</a></li>
+			</ul>
+
 			<div class="container">
-				<a href="#"><Image src={icons.favoritos} alt="Meus Favoritos" class="container__imagem"/></a>
+				<a href="#"><Image src={icons.favoritos} alt="Meus Favoritos" class="container__imagem container__imagem-transparent"/></a>
 				<a href="#"><Image src={icons.sacola} alt="Carrinho de Compras" class="container__imagem"/></a>
 				<a href="#"><Image src={icons.usuario} alt="Meu Perfil" class="container__imagem"/></a>
 			</div>
@@ -65,6 +96,9 @@ import Star from '../images/Star.svg';
 			<div class="swiper">
 				<!-- If we need pagination -->
 				<div class="swiper-pagination"></div>
+				 <!-- If we need navigation buttons -->
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
 				<!-- Additional required wrapper -->
 				<div class="swiper-wrapper">
 				<!-- Slides -->
@@ -189,6 +223,30 @@ import Star from '../images/Star.svg';
 				</li>
 			</ul>
 		</section>
+		<section class="contato">
+			<div class="contato__descricao">
+				<h2 class="contato__titulo">Fique por dentro das novidades!</h2>
+				<p class="contato__texto">Atualizações de e-books, novos livros, promoções e outros.</p>
+			</div>
+			<input type="email" class="contato__email" placeholder="Cadastre seu e-mail">
+		</section>
+		<footer class="rodape">
+			<h2 class="rodape__titulo">Grupo Alura</h2>
+			{footerIcons.map(col => (
+				<ul class="lista-rodape">
+					<li class="lista-rodape__titulo">{col.col_title}</li>
+					{col.items.map(partner => (
+						<li class="lista-rodape__item">
+							<Image src={partner.logo} alt=`Ícone {$partner.name}` />
+							<a href="#" class="lista-rodape__link">{partner.name}</a>
+						</li>
+					))}
+					
+			</ul>
+			))}
+			
+
+		</footer>
 
 
 	<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
