@@ -1,0 +1,61 @@
+---
+import Image from "astro/components/Image.astro"
+import icons from '../images/icons.js';
+import sliderItems from '../images/Slider/sliderData.js';
+import Star from '../images/Star.svg';
+import PerfilEscritora from '../images/Perfil-escritora 1.svg';
+---
+<section class="carousel">
+    <h2 class="carousel__titulo">Mais Vendidos</h2>
+    <!-- Slider main container -->
+    <div class="carousel__container">
+        <div class="swiper">
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+            <!-- Slides -->
+                {sliderItems.map(slider => (
+                    <div class="swiper-slide"><Image src={slider} alt="Slider Item" /></div>
+                ))}
+        
+            </div>
+        </div>
+
+        <div class="card">
+            <!-- 1ª Linha -->
+            <div class="card__descricao">
+                <!-- 1ª Coluna -->
+                <div class="descricao">
+                    <div class="stars">
+                        {[0,1,2,3,4].map(item => (
+                            <Image src={Star} alt="Estrela" class="card__estrela"/>
+                        ))}
+                    </div>
+                    <h3 class="descricao__titulo">
+                        Autora do Mês
+                    </h3>
+                    <h2 class="descricao__titulo_livro">
+                        Juliana Agarikov
+                    </h2>
+                    <p class="descricao__texto">
+                        Analista de sistemas e escritora, Juliana é especialista em Front-End. 
+                    </p>
+                </div>
+                <!-- 2ª Coluna -->
+                <Image src={PerfilEscritora} alt="Foto de perfil da Escritora" />
+            </div>
+            <!-- 2ª Linha -->
+            <div class="card__botoes">
+                <!-- 1ª Col -->
+                <ul class="botoes">
+                    <li class="botoes__item"><Image src={icons.favoritos} alt="Favoritar Livro" /></li>
+                    <li class="botoes__item"><Image src={icons.sacola} alt="Adicionar no carrinho de compras" /></li>
+                </ul>
+                <!-- 2ª col -->
+                <a href="#" class="botoes__ancora">Saiba mais</a>
+            </div>
+        </div>
+    </div>
+
+</section>

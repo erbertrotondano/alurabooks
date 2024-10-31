@@ -1,0 +1,58 @@
+---
+import Image from "astro/components/Image.astro"
+import icons from '../images/icons.js';
+import sliderItems from '../images/Slider/sliderData.js';
+import AngularImg from '../images/Perfil-escritora 2.svg';
+---
+<section class="carousel">
+    <h2 class="carousel__titulo">Últimos Lançamentos</h2>
+    <!-- Slider main container -->
+     <div class="carousel__container">
+        <div class="swiper">
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+            <!-- Slides -->
+                {sliderItems.map(slider => (
+                    <div class="swiper-slide"><Image src={slider} alt="Slider Item" /></div>
+                ))}
+        
+            </div>
+        </div>
+
+        <div class="card">
+            <!-- 1ª Linha -->
+            <div class="card__descricao">
+                <!-- 1ª Coluna -->
+                <div class="descricao">
+                    <h3 class="descricao__titulo">
+                        Talvez você também se interesse por...
+                    </h3>
+                    <h2 class="descricao__titulo_livro">
+                        Angular 11 e Firebase
+                    </h2>
+                    <p class="descricao__texto">
+                        Construindo uma aplicação integrada com a plataforma do Google.
+                    </p>
+                </div>
+                <!-- 2ª Coluna -->
+                <Image src={AngularImg} alt="Logo Angular" />
+            </div>
+            <!-- 2ª Linha -->
+            <div class="card__botoes">
+                <!-- 1ª Col -->
+                <ul class="botoes">
+                    <li class="botoes__item"><Image src={icons.favoritos} alt="Favoritar Livro" /></li>
+                    <li class="botoes__item"><Image src={icons.sacola} alt="Adicionar no carrinho de compras" /></li>
+                </ul>
+                <!-- 2ª col -->
+                <a href="#" class="botoes__ancora">Saiba mais</a>
+            </div>
+        </div>
+    </div>
+
+</section>
