@@ -1,0 +1,32 @@
+---
+import ResetCss from "./ResetCss.astro"
+---
+<ResetCss />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style is:global>
+    @import url('./Header.css');
+    @import url('./Banner.css');
+    @import url('./Carousel.css');
+    :root{
+        --cor-de-fundo: #EBECEE;
+        --branco: #FFFFFF;
+        --laranja: #EB9B00;
+        --azul: #002F52;
+        --azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+        --fonte-principal: "Poppins";
+        --cinza-macio: color: rgba(0, 0, 0, 0.85);
+    }
+    body{
+        background-color: var(--cor-de-fundo);
+        font-family: var(--fonte-principal);
+        font-size: 16px;
+        font-weight: 400;
+    }
+ 
+</style>

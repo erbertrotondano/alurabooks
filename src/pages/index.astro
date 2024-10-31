@@ -1,16 +1,176 @@
 ---
-
+import Image from "astro/components/Image.astro"
+import GlobalStyles from "../components/css/GlobalStyles.astro"
+import icons from '../images/icons.js';
+import sliderItems from '../images/Slider/sliderData.js';
+import AngularImg from '../images/Perfil-escritora 2.svg';
+import PerfilEscritora from '../images/Perfil-escritora 1.svg';
+import Star from '../images/Star.svg';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1;0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<GlobalStyles />
+		<title>Alura Books</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<header class="cabecalho">
+			<div class="container">
+				<input type="checkbox" id="menu" class="container__botao">
+				<label for="menu">
+					<span class="cabecalho__menu-hamburguer container__imagem"></span>
+				</label>
+				<ul class="lista-menu">
+					<li class="lista-menu__titulo">Categorias</li>
+					<li class="lista-menu__item">
+						<a href="#" class="lista-menu__link">Programação</a>
+					</li>
+					<li class="lista-menu__item">
+						<a href="#" class="lista-menu__link">Front-End</a>
+					</li>
+					<li class="lista-menu__item">
+						<a href="#" class="lista-menu__link">Infraestrutura</a>
+					</li>
+					<li class="lista-menu__item">
+						<a href="#" class="lista-menu__link">Bussiness</a>
+					</li>
+					<li class="lista-menu__item">
+						<a href="#" class="lista-menu__link">Design & UX</a>
+					</li>
+				</ul>
+				<Image src={icons.logo} alt="Logo da Alura Books" class="container__imagem"/>
+			</div>
+			<div class="container">
+				<a href="#"><Image src={icons.favoritos} alt="Meus Favoritos" class="container__imagem"/></a>
+				<a href="#"><Image src={icons.sacola} alt="Carrinho de Compras" class="container__imagem"/></a>
+				<a href="#"><Image src={icons.usuario} alt="Meu Perfil" class="container__imagem"/></a>
+			</div>
+			
+			
+		</header>
+
+		<section class="banner"> 
+			<h2 class="banner__titulo">Já sabe por onde começar?</h2>
+			<p class="banner__texto">Encontre em nossa estante o que precisa para seu desenvolvimento!</p>
+			<input type="search" class="banner__pesquisa" placeholder="Qual será sua próxima leitura?"/>
+		</section>
+
+		<section class="carousel">
+			<h2 class="carousel__titulo">Últimos Lançamentos</h2>
+			<!-- Slider main container -->
+			<div class="swiper">
+				<!-- If we need pagination -->
+				<div class="swiper-pagination"></div>
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
+				<!-- Slides -->
+					{sliderItems.map(slider => (
+						<div class="swiper-slide"><Image src={slider} alt="Slider Item" /></div>
+					))}
+			
+				</div>
+  			</div>
+
+			<div class="card">
+				<!-- 1ª Linha -->
+				<div class="card__descricao">
+					<!-- 1ª Coluna -->
+					<div class="descricao">
+						<h3 class="descricao__titulo">
+							Talvez você também se interesse por...
+						</h3>
+						<h2 class="descricao__titulo_livro">
+							Angular 11 e Firebase
+						</h2>
+						<p class="descricao__texto">
+							Construindo uma aplicação integrada com a plataforma do Google.
+						</p>
+					</div>
+					<!-- 2ª Coluna -->
+					<Image src={AngularImg} alt="Logo Angular" />
+				</div>
+				<!-- 2ª Linha -->
+				 <div class="card__botoes">
+					<!-- 1ª Col -->
+					<ul class="botoes">
+						<li class="botoes__item"><Image src={icons.favoritos} alt="Favoritar Livro" /></li>
+						<li class="botoes__item"><Image src={icons.sacola} alt="Adicionar no carrinho de compras" /></li>
+					</ul>
+					<!-- 2ª col -->
+					 <a href="#" class="botoes__ancora">Saiba mais</a>
+				 </div>
+			</div>
+
+		</section>
+
+		<section class="carousel">
+			<h2 class="carousel__titulo">Mais Vendidos</h2>
+			<!-- Slider main container -->
+			<div class="swiper">
+				<!-- If we need pagination -->
+				<div class="swiper-pagination"></div>
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
+				<!-- Slides -->
+					{sliderItems.map(slider => (
+						<div class="swiper-slide"><Image src={slider} alt="Slider Item" /></div>
+					))}
+			
+				</div>
+  			</div>
+
+			<div class="card">
+				<!-- 1ª Linha -->
+				<div class="card__descricao">
+					<!-- 1ª Coluna -->
+					<div class="descricao">
+						<div class="stars">
+							{[0,1,2,3,4].map(item => (
+								<Image src={Star} alt="Estrela" class="card__estrela"/>
+							))}
+						</div>
+						<h3 class="descricao__titulo">
+							Autora do Mês
+						</h3>
+						<h2 class="descricao__titulo_livro">
+							Juliana Agarikov
+						</h2>
+						<p class="descricao__texto">
+							Analista de sistemas e escritora, Juliana é especialista em Front-End. 
+						</p>
+					</div>
+					<!-- 2ª Coluna -->
+					<Image src={PerfilEscritora} alt="Foto de perfil da Escritora" />
+				</div>
+				<!-- 2ª Linha -->
+				 <div class="card__botoes">
+					<!-- 1ª Col -->
+					<ul class="botoes">
+						<li class="botoes__item"><Image src={icons.favoritos} alt="Favoritar Livro" /></li>
+						<li class="botoes__item"><Image src={icons.sacola} alt="Adicionar no carrinho de compras" /></li>
+					</ul>
+					<!-- 2ª col -->
+					 <a href="#" class="botoes__ancora">Saiba mais</a>
+				 </div>
+			</div>
+
+		</section>
+	<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+	<script is:inline type="module">
+		 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+		const swiper = new Swiper('.swiper', {
+			spaceBetween: 10,
+			slidesPerView: 3,
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'bullets',
+			},
+		});
+	</script>
 	</body>
+	
 </html>
